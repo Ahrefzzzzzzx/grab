@@ -21,7 +21,7 @@ tld_list = [
     'ac.id', 'co.id', 'net.id', 'or.id', 'web.id', 'sch.id', 'go.id', 'mil.id', 'ponpes.id'
 ]
 
-lock = threading.Lock()  # untuk akses file aman jika multithread
+lock = threading.Lock()  
 
 def get_domains_from_crtsh(tld, retries=3):
     print(f"[+] Ambil domain dari crt.sh untuk TLD: {tld}")
@@ -57,7 +57,6 @@ def write_domains_realtime(domains, filename="all_domains.txt"):
                 f.write(domain + "\n")
 
 def main():
-    # hapus file dulu supaya gak append ke data lama
     open("all_domains.txt", "w").close()
 
     all_domains = set()
