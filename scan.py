@@ -6,7 +6,7 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
 }
 
-lock = threading.Lock()  # agar thread aman saat menulis ke file
+lock = threading.Lock() 
 
 def is_wordpress(domain, scheme="http"):
     try:
@@ -63,10 +63,10 @@ def main():
     print("[⚙] Mulai scan...")
 
     with open("wordpress_found.txt", "w") as f:
-        f.write("")  # kosongkan file hasil lama
+        f.write("")  
 
     with open("gagal_scan.txt", "w") as f:
-        f.write("")  # kosongkan file gagal lama
+        f.write("") 
 
     with ThreadPoolExecutor(max_workers=20) as executor:
         executor.map(scan_domain, domains)
